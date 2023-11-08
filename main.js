@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", main);
 
-const backgroundEl = document.querySelector(".background");
+const backgroundEl = document.getElementById("background");
 const btnEl = document.querySelector(".btn-options");
 const pEl = document.querySelector("p");
 const h1El = document.querySelector("h1");
@@ -52,10 +52,19 @@ function renderWelcome(inputEl, inputBtn, inName) {
 function renderScenes() {
   textConEl.removeChild(inputBtn);
   const scene = scenes[activeSceneIndex];
+
   h1El.textContent = scene.headline;
-  pEl.textContent = scene;
-  buttonOptions = document.getElementById("btn-options");
-  buttonOptions.innerHTML = "";
+  pEl.textContent = scene.text;
+  backgroundEl.style.backgroundImage = scene.background;
+  backgroundEl.style.backgroundPosition = "center";
+
+  buttonOptionsContainer = document.getElementById("btn-options");
+  buttonOptionsContainer.className = "btn-options";
+  buttonOptionsContainer.innerHTML = "";
   for (const buttonOption of scene.buttonOptions) {
+    const button = document.createElement("button");
+    button.className = "btn";
+    button.textContent = buttonOption.text;
+    buttonOptionsContainer.appendChild(button);
   }
 }
