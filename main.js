@@ -26,7 +26,7 @@ function startPage() {
   inputEl.className = "input-field";
   inputBtn.className = "input-btn";
 
-  inputBtn.addEventListener("click", function () {
+  inputBtn.onclick = function () {
     inName = inputEl.value;
     if (inName === "") {
       inName = "Britt-Börje";
@@ -34,21 +34,28 @@ function startPage() {
 
     inputEl.value = "";
     renderWelcome(inputEl, inputBtn, inName);
-  });
+  };
   textConEl.appendChild(inputEl);
   textConEl.appendChild(inputBtn);
 }
 
 //iname följde med
 function renderWelcome(inputEl, inputBtn, inName) {
+  console.log("dasd");
   textConEl.removeChild(inputEl);
   inputBtn.innerText = "Click here to enter the park";
   pEl.textContent = "";
   h1El.textContent = "Välkommen till FUJI-Q Highland, " + inName + "!!";
-  inputBtn.addEventListener("click", renderScenes);
+  inputBtn.onclick = renderScenes;
 }
+
 function renderScenes() {
   textConEl.removeChild(inputBtn);
-  pEl;
-  h1El.textContent = "dsjkkdsjgjkgdsjkdb";
+  const scene = scenes[activeSceneIndex];
+  h1El.textContent = scene.headline;
+  pEl.textContent = scene;
+  buttonOptions = document.getElementById("btn-options");
+  buttonOptions.innerHTML = "";
+  for (const buttonOption of scene.buttonOptions) {
+  }
 }

@@ -1,7 +1,8 @@
 let activeSceneIndex = 0;
 const scenes = [
+  // 0
   {
-    headLine: "Spänningen i luften",
+    headline: "Spänningen i luften",
     text: "Wow vi är inne i parken.",
     buttonOptions: [
       {
@@ -11,6 +12,7 @@ const scenes = [
     ],
     background: "url('fujipark.jpg')",
   },
+  // 1
   {
     headline: "Do-Dodonpa",
     text: "Detta här är världens tredje snabbaste bergodalbana 180km/h snabbast acceleriton men avstängd mycket skador",
@@ -32,6 +34,10 @@ const scenes = [
     buttonOptions: [
       {
         text: "Åk den",
+        nextSceneIndex: 3,
+      },
+      {
+        text: "Åk inte urk",
         nextSceneIndex: 3,
       },
       {
