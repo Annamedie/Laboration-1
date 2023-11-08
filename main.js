@@ -48,9 +48,14 @@ function renderWelcome(inputEl, inputBtn, inName) {
   h1El.textContent = "Välkommen till FUJI-Q Highland, " + inName + "!!";
   inputBtn.onclick = renderScenes;
 }
+let haveRemoveChildExecuted = false;
 
 function renderScenes() {
-  textConEl.removeChild(inputBtn);
+  if (!haveRemoveChildExecuted) {
+    textConEl.removeChild(inputBtn);
+    haveRemoveChildExecuted = true;
+  }
+
   const scene = scenes[activeSceneIndex];
 
   h1El.textContent = scene.headline;
@@ -61,10 +66,18 @@ function renderScenes() {
   buttonOptionsContainer = document.getElementById("btn-options");
   buttonOptionsContainer.className = "btn-options";
   buttonOptionsContainer.innerHTML = "";
+
   for (const buttonOption of scene.buttonOptions) {
     const button = document.createElement("button");
     button.className = "btn";
     button.textContent = buttonOption.text;
     buttonOptionsContainer.appendChild(button);
+    button.onclick = function () {
+      nextScene(buttonOption.nextSceneIndex);
+    };
   }
+}
+function nextScene(sceneIndex) {
+  activeSceneIndex = sceneIndex;
+  renderScenes();
 }
