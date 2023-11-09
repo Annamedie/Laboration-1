@@ -96,6 +96,7 @@ h1 {
 .potrait-container {
   position: absolute;
   background-position: center;
+  border: 2px solid black;
   background-size: cover;
   width: 9rem;
   height: 9rem;

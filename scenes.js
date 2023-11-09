@@ -27,6 +27,7 @@ const scenes = [
         nextSceneIndex: 3,
       },
     ],
+    potrait: "url('exi4.png')",
     background: "url('dodompa.jpg')",
   },
   {
@@ -46,7 +47,7 @@ const scenes = [
         nextSceneIndex: 3,
       },
     ],
-    potrait: "url('excited2.png.')",
+    potrait: "url('excited2.png')",
     background: "url('dodompa.jpg')",
   },
   {
