@@ -41,7 +41,6 @@ function startPage() {
 
 //iname följde med
 function renderWelcome(inputEl, inputBtn, inName) {
-  console.log("dasd");
   textConEl.removeChild(inputEl);
   inputBtn.innerText = "Click here to enter the park";
   pEl.textContent = "";
