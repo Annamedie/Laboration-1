@@ -10,6 +10,7 @@ const scenes = [
         nextSceneIndex: 1,
       },
     ],
+    potrait: "url('excited.jpg')",
     background: "url('fujipark.jpg')",
   },
   // 1
@@ -45,6 +46,7 @@ const scenes = [
         nextSceneIndex: 3,
       },
     ],
+    potrait: "url('excited2.png.')",
     background: "url('dodompa.jpg')",
   },
   {
@@ -60,6 +62,7 @@ const scenes = [
         nextSceneIndex: 1,
       },
     ],
+    potrait: "url('exit3.png')",
     background: "url('eenjanka.jpg')",
   },
 ];

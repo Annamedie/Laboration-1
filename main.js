@@ -75,6 +75,7 @@ function renderScenes() {
       nextScene(buttonOption.nextSceneIndex);
     };
   }
+  for (const photo of scene.potrait)
 }
 function nextScene(sceneIndex) {
   activeSceneIndex = sceneIndex;

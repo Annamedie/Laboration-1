@@ -93,3 +93,20 @@ h1 {
   background-color: white;
   color: #1a1a1a;
 }
+.potrait-container {
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  width: 9rem;
+  height: 9rem;
+  background-color: aqua;
+  top: 30px;
+  right: 50px;
+}
+.dots {
+  background: black;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  border-radius: 5px;
+}
