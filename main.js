@@ -74,13 +74,6 @@ function renderScenes() {
   subtitlesContainer.textContent = "Paint me, with your mouse!";
   document.body.appendChild(subtitlesContainer);
 
-  function moveMouseOver(event) {
-    const getPaint = document.createElement("div");
-    getPaint.className = "dots";
-    document.body.appendChild(getPaint);
-    getPaint.style.top = event.clientY + "px";
-    getPaint.style.left = event.clientX + "px";
-  }
   photoContainer.addEventListener("mousemove", moveMouseOver);
 
   buttonOptionsContainer = document.getElementById("btn-options");
@@ -100,4 +93,11 @@ function renderScenes() {
 function nextScene(sceneIndex) {
   activeSceneIndex = sceneIndex;
   renderScenes();
+}
+function moveMouseOver(event) {
+  const getPaint = document.createElement("div");
+  getPaint.className = "dots";
+  document.body.appendChild(getPaint);
+  getPaint.style.top = event.clientY + "px";
+  getPaint.style.left = event.clientX + "px";
 }
