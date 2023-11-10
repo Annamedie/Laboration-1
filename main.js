@@ -76,6 +76,15 @@ function renderScenes() {
 
   photoContainer.addEventListener("mousemove", moveMouseOver);
 
+  if (scene.collectible) {
+    let collectibleImage = document.createElement("img");
+    collectibleImage.setAttribute("src", scene.collectible);
+    collectibleImage.setAttribute("width", "100");
+    collectibleImage.setAttribute("height", "100");
+    collectibleImage.setAttribute("alt", "Collectible image");
+    document.body.appendChild(collectibleImage);
+  }
+
   buttonOptionsContainer = document.getElementById("btn-options");
   buttonOptionsContainer.className = "btn-options";
   buttonOptionsContainer.innerHTML = "";
