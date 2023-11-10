@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", main);
+//window.addEventListener("DOMContentLoaded", main);
 
 const backgroundEl = document.getElementById("background");
 const btnEl = document.querySelector(".btn-options");
@@ -8,7 +8,9 @@ let textConEl;
 let inputEl;
 let inputBtn;
 let inName;
+let collectibleImage;
 let inventory = [];
+main();
 
 function main() {
   startPage();
@@ -56,9 +58,12 @@ function renderScenes() {
     textConEl.removeChild(inputBtn);
     haveRemoveChildExecuted = true;
   }
-
   const scene = scenes[activeSceneIndex];
 
+  let previousColletible = document.querySelector("img[src^='/iventory/']");
+  if (previousColletible) {
+    document.body.removeChild(previousColletible);
+  }
   h1El.textContent = scene.headline;
   pEl.textContent = scene.text;
   backgroundEl.style.backgroundImage = scene.background;
@@ -75,15 +80,17 @@ function renderScenes() {
   document.body.appendChild(subtitlesContainer);
 
   photoContainer.addEventListener("mousemove", moveMouseOver);
-
+  collectibleImage = document.createElement("img");
   if (scene.collectible) {
-    let collectibleImage = document.createElement("img");
     collectibleImage.setAttribute("src", scene.collectible);
     collectibleImage.setAttribute("width", "100");
     collectibleImage.setAttribute("height", "100");
     collectibleImage.setAttribute("alt", "Collectible image");
+    collectibleImage.classList;
     document.body.appendChild(collectibleImage);
   }
+  document.body.appendChild(collectibleImage);
+  collectibleImage.addEventListener("click", putInInventory);
 
   buttonOptionsContainer = document.getElementById("btn-options");
   buttonOptionsContainer.className = "btn-options";
@@ -109,4 +116,8 @@ function moveMouseOver(event) {
   document.body.appendChild(getPaint);
   getPaint.style.top = event.clientY + "px";
   getPaint.style.left = event.clientX + "px";
+}
+function putInInventory() {
+  inventory.push(scenes[activeSceneIndex].collectible);
+  //collectibleImage.classList.add("remove-collectible");
 }
