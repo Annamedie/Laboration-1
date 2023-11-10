@@ -119,5 +119,5 @@ function moveMouseOver(event) {
 }
 function putInInventory() {
   inventory.push(scenes[activeSceneIndex].collectible);
-  //collectibleImage.classList.add("remove-collectible");
+  document.body.removeChild(collectibleImage);
 }
