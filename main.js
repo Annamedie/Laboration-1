@@ -81,7 +81,9 @@ function renderScenes() {
 
   photoContainer.addEventListener("mousemove", moveMouseOver);
   collectibleImage = document.createElement("img");
-  if (scene.collectible) {
+  const collectibleInInventory = inventory.includes(scene.collectible);
+
+  if (scene.collectible && !collectibleInInventory) {
     collectibleImage.setAttribute("src", scene.collectible);
     collectibleImage.setAttribute("width", "100");
     collectibleImage.setAttribute("height", "100");
