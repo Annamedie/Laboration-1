@@ -10,8 +10,8 @@ const scenes = [
         nextSceneIndex: 1,
       },
     ],
-    potrait: "url('excited.jpg')",
-    background: "url('fujipark.jpg')",
+    potrait: "url('/background-pics/excited.jpg')",
+    background: "url('/background-pics/fujipark.jpg')",
   },
   // 1
   {
@@ -27,8 +27,8 @@ const scenes = [
         nextSceneIndex: 3,
       },
     ],
-    potrait: "url('exi4.png')",
-    background: "url('dodompa.jpg')",
+    potrait: "url('/background-pics/exi4.png')",
+    background: "url('/background-pics/dodompa.jpg')",
   },
   {
     headline: "Fujiyama",
@@ -47,8 +47,8 @@ const scenes = [
         nextSceneIndex: 3,
       },
     ],
-    potrait: "url('excited2.png')",
-    background: "url('dodompa.jpg')",
+    potrait: "url('/background-pics/excited2.png')",
+    background: "url('/background-pics/dodompa.jpg')",
   },
   {
     headline: "Eejanaika",
@@ -63,7 +63,7 @@ const scenes = [
         nextSceneIndex: 1,
       },
     ],
-    potrait: "url('exit3.png')",
-    background: "url('eenjanka.jpg')",
+    potrait: "url('/background-pics/exit3.png')",
+    background: "url('/background-pics/eenjanka.jpg')",
   },
 ];
