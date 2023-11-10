@@ -8,6 +8,7 @@ let textConEl;
 let inputEl;
 let inputBtn;
 let inName;
+let inventory = [];
 
 function main() {
   startPage();
@@ -67,6 +68,11 @@ function renderScenes() {
   photoContainer.className = "potrait-container";
   photoContainer.style.backgroundImage = scene.potrait;
   document.body.appendChild(photoContainer);
+
+  const subtitlesContainer = document.createElement("div");
+  subtitlesContainer.className = "subtitles";
+  subtitlesContainer.textContent = "Paint me, with your mouse!";
+  document.body.appendChild(subtitlesContainer);
 
   function moveMouseOver(event) {
     const getPaint = document.createElement("div");
