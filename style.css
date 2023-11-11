@@ -122,3 +122,8 @@ h1 {
   top: 170px;
   right: 50px;
 }
+.collectible-container {
+  background-color: chocolate;
+  width: 2rem;
+  height: 2rem;
+}

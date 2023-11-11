@@ -4,6 +4,7 @@ const backgroundEl = document.getElementById("background");
 const btnEl = document.querySelector(".btn-options");
 const pEl = document.querySelector("p");
 const h1El = document.querySelector("h1");
+let content = document.getElementById("content");
 let textConEl;
 let inputEl;
 let inputBtn;
@@ -58,16 +59,22 @@ function renderScenes() {
     textConEl.removeChild(inputBtn);
     haveRemoveChildExecuted = true;
   }
+
   const scene = scenes[activeSceneIndex];
 
   let previousColletible = document.querySelector("img[src^='/iventory/']");
   if (previousColletible) {
     document.body.removeChild(previousColletible);
   }
+
   h1El.textContent = scene.headline;
   pEl.textContent = scene.text;
   backgroundEl.style.backgroundImage = scene.background;
   backgroundEl.style.backgroundPosition = "center";
+
+  const collectibleContainer = document.createElement("div");
+  collectibleContainer.className = "collectible-container";
+  document.body.insertAdjacentElement("afterbegin", collectibleContainer);
 
   const photoContainer = document.createElement("div");
   photoContainer.className = "potrait-container";
