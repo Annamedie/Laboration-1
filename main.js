@@ -117,7 +117,7 @@ function renderScenes() {
   }
   const inventoryButton = document.createElement("button");
   inventoryButton.className = "btn";
-  inventoryButton.textContent = "View Inventory";
+  inventoryButton.textContent = "Kolla i fickan";
   buttonOptionsContainer.appendChild(inventoryButton);
 
   let isInventoryVisible = false;

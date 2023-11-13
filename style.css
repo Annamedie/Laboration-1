@@ -21,13 +21,15 @@ body {
 
 .content {
   padding: 1rem;
-  background-color: cyan;
+  background-color: #9bbec8;
+  border: solid 1px black;
   width: 70%;
   border-radius: 15px;
 }
 .text-content p,
 h1 {
   text-align: center;
+  font-family: Poppins;
 }
 .text-content {
   display: flex;
@@ -86,8 +88,10 @@ h1 {
   font-size: 1rem;
   color: white;
   margin: 0 auto;
-  background-color: darkolivegreen;
+  background-color: #427d9d;
   border: 2px solid black;
+  transition: 400ms;
+  cursor: pointer;
 }
 .input-btn:hover {
   background-color: white;
@@ -124,12 +128,15 @@ h1 {
 }
 .collectible-container {
   position: absolute;
-  background-color: aliceblue;
-  top: 1rem;
-  right: 50%;
+  background-color: #ddf2fd;
+  border: solid 2px black;
+  border-radius: 10px;
+  top: 64%;
+  left: 50%;
+  transform: translate(-50%);
 }
-.imgg {
-  display: block;
+.collectible-container img {
+  display: inline-block;
   width: 5rem;
   height: 5rem;
 }

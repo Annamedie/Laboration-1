@@ -11,11 +11,11 @@ const scenes = [
       },
       {
         text: "Knalla längre vi ska!",
-        nextSceneIndex: 2,
+        nextSceneIndex: 1,
       },
       {
         text: "Gå till Do-Dodonpa!",
-        nextSceneIndex: 1,
+        nextSceneIndex: 2,
       },
       {
         text: "Quizdags?!",
