@@ -7,15 +7,19 @@ const scenes = [
     buttonOptions: [
       {
         text: "Gå till Fujiyama!",
-        nextSceneIndex: 1,
+        nextSceneIndex: 3,
       },
       {
         text: "Knalla längre vi ska!",
-        nextSceneIndex: 1,
+        nextSceneIndex: 2,
       },
       {
         text: "Gå till Do-Dodonpa!",
         nextSceneIndex: 1,
+      },
+      {
+        text: "Quizdags?!",
+        nextSceneIndex: 100,
       },
     ],
     collectible: "/iventory/star.png",
@@ -29,75 +33,142 @@ const scenes = [
     buttonOptions: [
       {
         text: "Gå till Takabisha",
-        nextSceneIndex: 1,
+        nextSceneIndex: 5,
       },
       {
         text: "Ska vi gå tillbaka?",
-        nextSceneIndex: 1,
+        nextSceneIndex: 0,
       },
       {
-        text: "Gå till Eejanaika",
-        nextSceneIndex: 1,
+        text: "Gå till Eejanaika!",
+        nextSceneIndex: 4,
       },
     ],
-    collectible: "/iventory/star.png",
+    collectible: "/iventory/star3.png",
     potrait: "url('/background-pics/excited.jpg')",
-    background: "url('/background-pics/fujipark.jpg')",
+    background: "url('/background-pics/fujiqinside.jpg')",
   },
+  //2
   {
-    headline: "Do-Dodonpa",
+    headline: " Vill du åka Do-Dodonpa?",
     text: "Detta här är världens tredje snabbaste bergodalbana 180km/h snabbast acceleriton men avstängd mycket skador",
     buttonOptions: [
       {
-        text: "Åk den",
-        nextSceneIndex: 2,
+        text: "OMG kom igen så åker vi!",
+        nextSceneIndex: 6,
       },
       {
-        text: "Åk inte urk",
-        nextSceneIndex: 3,
+        text: "Finns inte på kartan!!",
+        nextSceneIndex: 0,
       },
     ],
     potrait: "url('/background-pics/exi4.png')",
     background: "url('/background-pics/dodompa.jpg')",
   },
-  //2
+  //3
   {
     headline: "Fujiyama",
     text: "Detta här är världens tredje snabbaste bergodalbana 180km/h snabbast acceleriton men avstängd mycket skador",
     buttonOptions: [
       {
-        text: "Åk den",
-        nextSceneIndex: 3,
+        text: "Let's goooooo!",
+        nextSceneIndex: 9,
       },
       {
-        text: "Åk inte urk",
-        nextSceneIndex: 3,
-      },
-      {
-        text: "Åk inte urk",
-        nextSceneIndex: 3,
+        text: "Nope, Niet, Nien",
+        nextSceneIndex: 0,
       },
     ],
     potrait: "url('/background-pics/excited2.png')",
-    background: "url('/background-pics/dodompa.jpg')",
+    background: "url('/background-pics/fujiyama.jpg')",
   },
-  //3
+  //4
   {
     headline: "Eejanaika",
     text: "Detta här är världens tredje snabbaste bergodalbana 180km/h snabbast acceleriton men avstängd mycket skador",
     buttonOptions: [
       {
-        text: "Åk den",
-        nextSceneIndex: 0,
+        text: "Jaa! Har väntat eoner på detta!",
+        nextSceneIndex: 8,
       },
       {
-        text: "Åk inte urk",
+        text: "Aldrig i livet!",
         nextSceneIndex: 1,
       },
     ],
     collectible: "/iventory/star2.png",
     potrait: "url('/background-pics/exit3.png')",
     background: "url('/background-pics/eenjanka.jpg')",
+  },
+  //5
+  {
+    headline: "Takabisha",
+    text: "Detta här är världens tredje snabbaste bergodalbana 180km/h snabbast acceleriton men avstängd mycket skador",
+    buttonOptions: [
+      {
+        text: "Vamos Muchachos!",
+        nextSceneIndex: 7,
+      },
+      {
+        text: "Ni madres!!",
+        nextSceneIndex: 1,
+      },
+    ],
+    collectible: "/iventory/starny.png",
+    potrait: "url('/background-pics/excited2.png')",
+    background: "url('/background-pics/Takabashi.jpg')",
+  },
+  //6
+  {
+    headline: "Do-Dodonpa",
+    text: "Vilket åk",
+    buttonOptions: [
+      {
+        text: "Vilket åk!",
+        nextSceneIndex: 0,
+      },
+    ],
+    potrait: "url('/background-pics/excited2.png')",
+    background: "url('/background-pics/moonsault.webp')",
+  },
+  //7
+  {
+    headline: "Takabisha",
+    text: "Vilket åk",
+    buttonOptions: [
+      {
+        text: "Åka ngt mer!",
+        nextSceneIndex: 1,
+      },
+    ],
+    potrait: "url('/background-pics/excited2.png')",
+    background: "url('/background-pics/moonsault.webp')",
+  },
+  //8
+  {
+    headline: "Eejanaika",
+    text: "Vilket åk",
+    buttonOptions: [
+      {
+        text: "Åka ngt annat!",
+        nextSceneIndex: 1,
+      },
+    ],
+    potrait: "url('/background-pics/excited2.png')",
+    background: "url('/background-pics/moonsault.webp')",
+  },
+  //9
+  {
+    headline: "Fujiyama",
+    text: "Vilket åk",
+    buttonOptions: [
+      {
+        text: "Woop nästa åk!",
+        nextSceneIndex: 0,
+      },
+    ],
+    potrait: "url('/background-pics/excited2.png')",
+    background: "url('/background-pics/moonsault.webp')",
   },
 ];
 //
