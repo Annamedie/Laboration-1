@@ -123,7 +123,13 @@ h1 {
   right: 50px;
 }
 .collectible-container {
-  background-color: chocolate;
-  width: 2rem;
-  height: 2rem;
+  position: absolute;
+  background-color: aliceblue;
+  top: 1rem;
+  right: 50%;
+}
+.imgg {
+  display: block;
+  width: 5rem;
+  height: 5rem;
 }

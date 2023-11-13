@@ -52,14 +52,14 @@ function renderWelcome(inputEl, inputBtn, inName) {
   inputBtn.onclick = renderScenes;
 }
 
-let haveRemoveChildExecuted = false;
+let hasRemovedInputExecuted = false;
 
 function renderScenes() {
-  if (!haveRemoveChildExecuted) {
+  if (!hasRemovedInputExecuted) {
     textConEl.removeChild(inputBtn);
-    haveRemoveChildExecuted = true;
+    hasRemovedInputExecuted = true;
   }
-
+  cleanSlate();
   const scene = scenes[activeSceneIndex];
 
   let previousColletible = document.querySelector("img[src^='/iventory/']");
@@ -72,7 +72,7 @@ function renderScenes() {
   backgroundEl.style.backgroundImage = scene.background;
   backgroundEl.style.backgroundPosition = "center";
 
-  const collectibleContainer = document.createElement("div");
+  let collectibleContainer = document.createElement("div");
   collectibleContainer.className = "collectible-container";
   document.body.insertAdjacentElement("afterbegin", collectibleContainer);
 
@@ -88,6 +88,7 @@ function renderScenes() {
 
   photoContainer.addEventListener("mousemove", moveMouseOver);
   collectibleImage = document.createElement("img");
+
   const collectibleInInventory = inventory.includes(scene.collectible);
 
   if (scene.collectible && !collectibleInInventory) {
@@ -114,10 +115,34 @@ function renderScenes() {
       nextScene(buttonOption.nextSceneIndex);
     };
   }
+  const inventoryButton = document.createElement("button");
+  inventoryButton.className = "btn";
+  inventoryButton.textContent = "View Inventory";
+  buttonOptionsContainer.appendChild(inventoryButton);
+
+  let isInventoryVisible = false;
+
+  inventoryButton.onclick = function () {
+    isInventoryVisible = !isInventoryVisible;
+
+    collectibleContainer.innerHTML = "";
+
+    if (isInventoryVisible) {
+      inventory.forEach((star) => {
+        const image = document.createElement("img");
+        image.src = star;
+        collectibleContainer.appendChild(image);
+      });
+    }
+  };
 }
 function nextScene(sceneIndex) {
-  activeSceneIndex = sceneIndex;
-  renderScenes();
+  if (sceneIndex === 100) {
+    renderQuiz();
+  } else {
+    activeSceneIndex = sceneIndex;
+    renderScenes();
+  }
 }
 function moveMouseOver(event) {
   const getPaint = document.createElement("div");
@@ -129,4 +154,12 @@ function moveMouseOver(event) {
 function putInInventory() {
   inventory.push(scenes[activeSceneIndex].collectible);
   document.body.removeChild(collectibleImage);
+}
+function cleanSlate() {
+  const removedElements = document.querySelectorAll(
+    ".collectible-container, .potrait-container, .subtitles, .dots, img"
+  );
+  removedElements.forEach((element) => {
+    element.remove();
+  });
 }
