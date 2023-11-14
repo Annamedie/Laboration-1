@@ -60,6 +60,7 @@ function renderScenes() {
     textConEl.removeChild(inputBtn);
     hasRemovedInputExecuted = true;
   }
+  nextBtnElement.style.display = "none";
   cleanSlate();
   const scene = scenes[activeSceneIndex];
 
@@ -139,7 +140,7 @@ function renderScenes() {
 }
 function nextScene(sceneIndex) {
   if (sceneIndex === 100) {
-    renderQuiz();
+    startQuiz();
   } else {
     activeSceneIndex = sceneIndex;
     renderScenes();
@@ -166,9 +167,16 @@ function cleanSlate() {
 }
 
 /*code for the quiz*/
+function startQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+  nextBtnElement.innerHTML = "Next";
+  renderQuiz();
+  answers;
+}
 function renderQuiz() {
   cleanSlate();
-  //resetState();
+  resetState();
   let currentQuestion = questions[currentQuestionIndex];
   numberQuestion = currentQuestionIndex + 1;
   h1El.innerHTML = numberQuestion + ". " + currentQuestion.question;
@@ -183,12 +191,13 @@ function renderQuiz() {
     quizBtns.addEventListener("click", selectedAnswer);
   }
 }
-/*function resetState() {
-  nextBtn.style.display = "none";
-  while (answersBtnElement.firstChild) {
-    answersBtnElement.removeChild(answersBtnElement.firstChild);
+function resetState() {
+  pEl.innerHTML = "";
+  nextBtnElement.style.display = "none";
+  while (btnEl.firstChild) {
+    btnEl.removeChild(btnEl.firstChild);
   }
-}*/
+}
 function selectedAnswer(e) {
   const selectedBtn = e.target;
   const isCorrect = selectedBtn.dataset.correct === "true";
@@ -205,12 +214,24 @@ function selectedAnswer(e) {
   }
   nextBtnElement.style.display = "block";
 }
-/*const buttons = answersBtnElement.children;
-for (let i = 0; i < buttons.length; i++) {
-  const button = buttons[i];
-
-  if (button.dataset.correct === "true") {
-    button.classList.add("correct");
+nextBtnElement.addEventListener("click", () => {
+  if (currentQuestionIndex < questions.length) {
+    goToNextQuestion();
+  } else {
+    renderScenes();
   }
-  button.disabled = true;
-}*/
+});
+function goToNextQuestion() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    renderQuiz();
+  } else {
+    showScore();
+  }
+}
+function showScore() {
+  resetState();
+  h1El.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  nextBtnElement.innerHTML = "Gå ut i parken!";
+  nextBtnElement.style.display = "block";
+}

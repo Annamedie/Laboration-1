@@ -52,7 +52,7 @@ const questions = [
       },
     ],
   },
-  {
+  /*{
     question: "Här är den fjärde frågan",
     answers: [
       {
@@ -170,5 +170,5 @@ const questions = [
         correct: false,
       },
     ],
-  },
+  },*/
 ];
