@@ -177,3 +177,9 @@ p {
 .btn-quiz:disabled {
   cursor: no-drop;
 }
+.correct {
+  background-color: green;
+}
+.incorrect {
+  background-color: red;
+}
