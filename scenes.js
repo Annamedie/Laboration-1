@@ -124,7 +124,7 @@ const scenes = [
     text: "Vilket åk",
     buttonOptions: [
       {
-        text: "Vilket åk!",
+        text: "Woop nästa åk!",
         nextSceneIndex: 0,
       },
     ],
@@ -137,7 +137,7 @@ const scenes = [
     text: "Vilket åk",
     buttonOptions: [
       {
-        text: "Åka ngt mer!",
+        text: "Woop nästa åk!",
         nextSceneIndex: 1,
       },
     ],
@@ -150,7 +150,7 @@ const scenes = [
     text: "Vilket åk",
     buttonOptions: [
       {
-        text: "Åka ngt annat!",
+        text: "Woop nästa åk!",
         nextSceneIndex: 1,
       },
     ],
