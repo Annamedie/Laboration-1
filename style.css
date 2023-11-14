@@ -26,8 +26,13 @@ body {
   width: 70%;
   border-radius: 15px;
 }
-.text-content p,
+
 h1 {
+  text-align: center;
+  font-family: Poppins;
+}
+p {
+  font-weight: bolder;
   text-align: center;
   font-family: Poppins;
 }
@@ -139,4 +144,36 @@ h1 {
   display: inline-block;
   width: 5rem;
   height: 5rem;
+}
+/*Styles for the quiz*/
+#next-btn {
+  background-color: darkorchid;
+  color: #333;
+  font-weight: 500;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+}
+.btn-quiz {
+  background-color: white;
+  color: #222;
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid #222;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-quiz:hover:not([disabled]) {
+  box-shadow: 5px 5px 8px blue, 10px 10px 8px red, 15px 15px 8px green;
+}
+.btn-quiz:disabled {
+  cursor: no-drop;
 }

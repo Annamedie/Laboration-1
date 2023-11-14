@@ -2,6 +2,7 @@
 
 const backgroundEl = document.getElementById("background");
 const btnEl = document.querySelector(".btn-options");
+const nextBtnElement = document.getElementById("next-btn");
 const pEl = document.querySelector("p");
 const h1El = document.querySelector("h1");
 let content = document.getElementById("content");
@@ -157,9 +158,28 @@ function putInInventory() {
 }
 function cleanSlate() {
   const removedElements = document.querySelectorAll(
-    ".collectible-container, .potrait-container, .subtitles, .dots, img"
+    ".collectible-container, .potrait-container, .subtitles, .dots, img, .btn"
   );
   removedElements.forEach((element) => {
     element.remove();
   });
 }
+
+/*code for the quiz*/
+function renderQuiz() {
+  cleanSlate();
+  let currentQuestion = questions[currentQuestionIndex];
+  numberQuestion = currentQuestionIndex + 1;
+  h1El.innerHTML = numberQuestion + ". " + currentQuestion.question;
+  for (let answer of currentQuestion.answers) {
+    const quizBtns = document.createElement("button");
+    quizBtns.textContent = answer.text;
+    quizBtns.classList.add("btn-quiz");
+    btnEl.appendChild(quizBtns);
+    if (answer.correct) {
+      quizBtns.dataset.correct = answer.correct;
+    }
+  }
+  quizBtns.addEventListener("click", selectedAnswer);
+}
+/*Här börjar kod för quiz*/
