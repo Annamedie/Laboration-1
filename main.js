@@ -9,7 +9,7 @@ let content = document.getElementById("content");
 let textConEl;
 let inputEl;
 let inputBtn;
-let inName;
+let inputName;
 let collectibleImage;
 let inventory = [];
 main();
@@ -30,26 +30,29 @@ function startPage() {
 
   inputEl.className = "input-field";
   inputBtn.className = "input-btn";
+  let checkStorage = localStorage.getItem("name");
+  inputEl.value = checkStorage || "";
 
   inputBtn.onclick = function () {
-    inName = inputEl.value;
-    if (inName === "") {
-      inName = "Britt-Börje";
+    inputName = inputEl.value;
+    if (!inputName && !checkStorage) {
+      inputName = "Britt-Börje";
     }
-
+    localStorage.setItem("name", inputName);
     inputEl.value = "";
-    renderWelcome(inputEl, inputBtn, inName);
+    renderWelcome(inputEl, inputBtn, inputName);
   };
   textConEl.appendChild(inputEl);
   textConEl.appendChild(inputBtn);
 }
 
 //iname följde med
-function renderWelcome(inputEl, inputBtn, inName) {
+function renderWelcome(inputEl, inputBtn, inputName) {
   textConEl.removeChild(inputEl);
+  let savedName = localStorage.getItem("name") || "Britt-Börje";
   inputBtn.innerText = "Click here to enter the park";
   pEl.textContent = "";
-  h1El.textContent = "Välkommen till FUJI-Q Highland, " + inName + "!!";
+  h1El.textContent = "Välkommen till FUJI-Q Highland, " + savedName + "!!";
   inputBtn.onclick = renderScenes;
 }
 
