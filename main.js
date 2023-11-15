@@ -61,6 +61,7 @@ function renderScenes() {
     hasRemovedInputExecuted = true;
   }
   nextBtnElement.style.display = "none";
+
   cleanSlate();
   const scene = scenes[activeSceneIndex];
 
@@ -103,6 +104,26 @@ function renderScenes() {
   }
   document.body.appendChild(collectibleImage);
   collectibleImage.addEventListener("click", putInInventory);
+
+  const iframe = document.createElement("iframe");
+
+  let iframeYoutube = document.getElementById("youtube-iframe");
+
+  if (iframeYoutube) {
+    textConEl.removeChild(iframeYoutube);
+  }
+  if (scene.video) {
+    const iframe = document.createElement("iframe");
+    iframe.setAttribute("id", "youtube-iframe");
+    iframe.width = "560";
+    iframe.height = "315";
+    iframe.src = scene.video;
+    iframe.title = "YouTube video player";
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
+    textConEl.appendChild(iframe);
+  }
 
   buttonOptionsContainer = document.getElementById("btn-options");
   buttonOptionsContainer.className = "btn-options";
@@ -172,7 +193,7 @@ function startQuiz() {
   score = 0;
   nextBtnElement.innerHTML = "Next";
   renderQuiz();
-  answers;
+  //answers;
 }
 function renderQuiz() {
   cleanSlate();
@@ -231,7 +252,7 @@ function goToNextQuestion() {
 }
 function showScore() {
   resetState();
-  h1El.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  h1El.innerHTML = `Du hade rätt på ${score} utav ${questions.length}!`;
   nextBtnElement.innerHTML = "Gå ut i parken!";
   nextBtnElement.style.display = "block";
 }
