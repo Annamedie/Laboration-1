@@ -147,7 +147,6 @@ function renderScenes() {
   buttonOptionsContainer.appendChild(inventoryButton);
 
   let isInventoryVisible = false;
-  loadFromLocalstorage();
 
   inventoryButton.onclick = function () {
     loadFromLocalstorage();
