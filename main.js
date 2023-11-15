@@ -180,6 +180,7 @@ function moveMouseOver(event) {
 function putInInventory() {
   inventory.push(scenes[activeSceneIndex].collectible);
   document.body.removeChild(collectibleImage);
+  saveToLocalStorage();
 }
 function cleanSlate() {
   const removedElements = document.querySelectorAll(
@@ -188,6 +189,10 @@ function cleanSlate() {
   removedElements.forEach((element) => {
     element.remove();
   });
+}
+function saveToLocalStorage() {
+  const inventoryString = JSON.stringify(inventory);
+  localStorage.setItem("inventory", inventoryString);
 }
 
 /*code for the quiz*/
