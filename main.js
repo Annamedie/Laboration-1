@@ -147,8 +147,10 @@ function renderScenes() {
   buttonOptionsContainer.appendChild(inventoryButton);
 
   let isInventoryVisible = false;
+  loadFromLocalstorage();
 
   inventoryButton.onclick = function () {
+    loadFromLocalstorage();
     isInventoryVisible = !isInventoryVisible;
 
     collectibleContainer.innerHTML = "";
@@ -182,6 +184,7 @@ function putInInventory() {
   document.body.removeChild(collectibleImage);
   saveToLocalStorage();
 }
+
 function cleanSlate() {
   const removedElements = document.querySelectorAll(
     ".collectible-container, .potrait-container, .subtitles, .dots, img, .btn"
@@ -193,6 +196,14 @@ function cleanSlate() {
 function saveToLocalStorage() {
   const inventoryString = JSON.stringify(inventory);
   localStorage.setItem("inventory", inventoryString);
+}
+function loadFromLocalstorage() {
+  if (localStorage.key("inventory")) {
+    const inventoryString = localStorage.getItem("inventory");
+    savedInventory = JSON.parse(inventoryString);
+  }
+  inventory.length = 0;
+  inventory.push(...savedInventory); //read that it was the same thing as a for loop, very efficent like this.
 }
 
 /*code for the quiz*/
