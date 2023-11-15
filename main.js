@@ -66,12 +66,9 @@ function renderScenes() {
   nextBtnElement.style.display = "none";
 
   cleanSlate();
-  const scene = scenes[activeSceneIndex];
 
-  let previousColletible = document.querySelector("img[src^='/iventory/']");
-  if (previousColletible) {
-    document.body.removeChild(previousColletible);
-  }
+  const scene = scenes[activeSceneIndex];
+  /*removeCollectiblesPage(scene);*/
 
   h1El.textContent = scene.headline;
   pEl.textContent = scene.text;
@@ -181,7 +178,38 @@ function moveMouseOver(event) {
 function putInInventory() {
   inventory.push(scenes[activeSceneIndex].collectible);
   document.body.removeChild(collectibleImage);
+  scenes[activeSceneIndex].collectible = "";
   saveToLocalStorage();
+}
+function removeCollectiblesPage(scene) {
+  if (!scene.collectible) {
+    return;
+  }
+  let storedInventory = [];
+
+  if (localStorage.key("inventory")) {
+    const inventoryString = localStorage.getItem("inventory");
+    if (inventoryString) {
+      storedInventory = JSON.parse(inventoryString);
+      console.log("Stored Inventory:", storedInventory);
+    }
+  }
+  const sceneCollectible = scene.collectible;
+
+  /*storedInventory.forEach((item) => {
+    console.log("Comparison:", item === sceneCollectible);
+  });*/
+
+  storedInventory.forEach((item) => {
+    if (item === sceneCollectible) {
+      let previousColletible = document.querySelector(
+        `img[src="${sceneCollectible}"]`
+      );
+      if (previousColletible && document.body.contains(previousColletible)) {
+        document.body.removeChild(previousColletible);
+      }
+    }
+  });
 }
 
 function cleanSlate() {
