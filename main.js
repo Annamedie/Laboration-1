@@ -26,10 +26,15 @@ function startPage() {
   inputEl.setAttribute("placeholder", "Skriv ditt namn!");
 
   inputBtn = document.createElement("button");
+  resetBtn = document.createElement("button");
+
   inputBtn.innerText = "Sänd";
+  resetBtn.innerText = "Nollställ Fuji-Q";
 
   inputEl.className = "input-field";
   inputBtn.className = "input-btn";
+  resetBtn.className = "input-btn";
+
   let checkStorage = localStorage.getItem("name");
   inputEl.value = checkStorage || "";
 
@@ -42,13 +47,18 @@ function startPage() {
     inputEl.value = "";
     renderWelcome(inputEl, inputBtn, inputName);
   };
+  resetBtn.onclick = function () {
+    localStorage.clear();
+  };
   textConEl.appendChild(inputEl);
   textConEl.appendChild(inputBtn);
+  textConEl.appendChild(resetBtn);
 }
 
 //iname följde med
 function renderWelcome(inputEl, inputBtn, inputName) {
   textConEl.removeChild(inputEl);
+  textConEl.removeChild(resetBtn);
   let savedName = localStorage.getItem("name") || "Britt-Börje";
   inputBtn.innerText = "Click here to enter the park";
   pEl.textContent = "";
