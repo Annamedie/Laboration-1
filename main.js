@@ -106,17 +106,23 @@ function renderScenes() {
   const collectibleInInventory = inventory.includes(scene.collectible);
 
   if (scene.collectible && !collectibleInInventory) {
+    let randomIntTop =
+      Math.floor(Math.random() * (window.innerHeight - 30)) + "px";
+    let randomIntLeft =
+      Math.floor(Math.random() * (window.innerWidth - 10)) + "px";
     collectibleImage.setAttribute("src", scene.collectible);
     collectibleImage.setAttribute("width", "100");
     collectibleImage.setAttribute("height", "100");
     collectibleImage.setAttribute("alt", "Collectible image");
-    collectibleImage.classList;
+    collectibleImage.className = "collectible";
+    collectibleImage.style.top = randomIntTop;
+    collectibleImage.style.left = randomIntLeft;
     document.body.appendChild(collectibleImage);
   }
   document.body.appendChild(collectibleImage);
   collectibleImage.addEventListener("click", putInInventory);
 
-  const iframe = document.createElement("iframe");
+  //const iframe = document.createElement("iframe");
 
   let iframeYoutube = document.getElementById("youtube-iframe");
 
@@ -272,7 +278,7 @@ function renderQuiz() {
     quizBtns.addEventListener("click", selectedAnswer);
   }
   if (inventory.length >= 4) {
-    pEl.innerHTML = "Fyra stjärnor ger en ledtråd!<br>Dee är öken!";
+    pEl.innerHTML = "Fyra samlade stjärnor ger en ledtråd:<br>Dee är öken!";
   }
   console.log(inventory);
 }

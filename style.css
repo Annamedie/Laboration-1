@@ -131,6 +131,9 @@ p {
   top: 170px;
   right: 50px;
 }
+.collectible {
+  position: absolute;
+}
 .collectible-container {
   position: absolute;
   background-color: #ddf2fd;
