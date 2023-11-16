@@ -68,7 +68,7 @@ function renderScenes() {
   cleanSlate();
 
   const scene = scenes[activeSceneIndex];
-  /*removeCollectiblesPage(scene);*/
+  removeCollectiblesPage(scene);
 
   h1El.textContent = scene.headline;
   pEl.textContent = scene.text;
@@ -199,14 +199,16 @@ function removeCollectiblesPage(scene) {
   /*storedInventory.forEach((item) => {
     console.log("Comparison:", item === sceneCollectible);
   });*/
-
+  //"img[src^='/iventory/']"
   storedInventory.forEach((item) => {
     if (item === sceneCollectible) {
-      let previousColletible = document.querySelector(
-        `img[src="${sceneCollectible}"]`
-      );
-      if (previousColletible && document.body.contains(previousColletible)) {
+      console.log("prutt1");
+      let previousColletible = document.querySelector("img[src^='/iventory/']");
+      if (
+        /*previousColletible &&*/ document.body.contains(previousColletible)
+      ) {
         document.body.removeChild(previousColletible);
+        console.log("prutt");
       }
     }
   });

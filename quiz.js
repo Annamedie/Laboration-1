@@ -2,173 +2,174 @@ let currentQuestionIndex = 0;
 score = 0;
 const questions = [
   {
-    question: "Här är den första frågan",
+    question: "Vilket år öppnade Fuji-Q Highland?",
     answers: [
       {
-        text: "Något 1",
+        text: "År 1950",
         correct: false,
       },
       {
-        text: "Något 2",
+        text: "År 1968",
         correct: true,
       },
       {
-        text: "Något 3",
+        text: "År 1979",
         correct: false,
       },
     ],
   },
   {
-    question: "Här är den andra frågan",
+    question: "Vad är maxfarten för Do-Dodonpa?",
     answers: [
       {
-        text: "Något 1",
+        text: "180km/h",
         correct: true,
       },
       {
-        text: "Något 2",
+        text: "190km/h",
         correct: false,
       },
       {
-        text: "Något 3",
+        text: "170km/h",
         correct: false,
       },
     ],
   },
   {
-    question: "Här är den tredje frågan",
+    question: "Vilket företag har tillverkat Takabisha?",
     answers: [
       {
-        text: "Något 1",
+        text: "Intamin",
         correct: false,
       },
       {
-        text: "Något 2",
+        text: "Gerstlauer",
         correct: true,
       },
       {
-        text: "Något 3",
-        correct: false,
-      },
-    ],
-  },
-  /*{
-    question: "Här är den fjärde frågan",
-    answers: [
-      {
-        text: "Något 1",
-        correct: false,
-      },
-      {
-        text: "Något 2",
-        correct: false,
-      },
-      {
-        text: "Något 3",
-        correct: true,
-      },
-    ],
-  },
-  {
-    question: "Här är den femte frågan",
-    answers: [
-      {
-        text: "Något 1",
-        correct: false,
-      },
-      {
-        text: "Något 2",
-        correct: true,
-      },
-      {
-        text: "Något 3",
+        text: "TOGO",
         correct: false,
       },
     ],
   },
   {
-    question: "Här är den sjätte frågan",
+    question: "Vad är maxåldern för att åka Fujiyama?",
     answers: [
       {
-        text: "Något 1",
+        text: "75 år",
         correct: false,
       },
       {
-        text: "Något 2",
+        text: "Finns ingen maxålder",
+        correct: false,
+      },
+      {
+        text: "64 år",
+        correct: true,
+      },
+    ],
+  },
+  {
+    question: "Vilken typ av berg- och dalbana är Eejanaika?",
+    answers: [
+      {
+        text: "3D",
+        correct: false,
+      },
+      {
+        text: "Zac-spin",
+        correct: false,
+      },
+      {
+        text: "4D",
+        correct: true,
+      },
+    ],
+  },
+  {
+    question: "Vad får Do-Dodonpa att accelerera så fort?",
+    answers: [
+      {
+        text: "Tryckluft",
         correct: true,
       },
       {
-        text: "Något 3",
+        text: "Hydraulik",
+        correct: false,
+      },
+      {
+        text: "LSM- Linear synchronous Motor",
         correct: false,
       },
     ],
   },
   {
-    question: "Här är den sjunde frågan",
+    question: "Hur brant är droppet på Takabisha?",
     answers: [
       {
-        text: "Något 1",
+        text: "100 grader",
         correct: false,
       },
       {
-        text: "Något 2",
+        text: "138 grader",
+        correct: false,
+      },
+      {
+        text: "121 grader",
+        correct: true,
+      },
+    ],
+  },
+  {
+    question: "Varför uppmärksammades Fujiyama år 2000",
+    answers: [
+      {
+        text: "Flera besökare bröt ben på attraktionen",
+        correct: false,
+      },
+      {
+        text: "Var med i en studie om subduralblödning",
         correct: true,
       },
       {
-        text: "Något 3",
+        text: "Orsakade amblyopi hos vuxna",
         correct: false,
       },
     ],
   },
   {
-    question: "Här är den åttonde frågan",
+    question: "Vad betyder Eejanaika?",
     answers: [
       {
-        text: "Något 1",
-        correct: false,
-      },
-      {
-        text: "Något 2",
+        text: "Är den inte bra?!",
         correct: true,
       },
       {
-        text: "Något 3",
+        text: "Något extra!",
+        correct: false,
+      },
+      {
+        text: "Högt flygande bilar",
         correct: false,
       },
     ],
   },
   {
-    question: "Här är den nionde frågan",
+    question:
+      "I vilket land kommer väldens högsta, längsta och snabbaste berg- och dalbana byggas?",
     answers: [
       {
-        text: "Något 1",
+        text: "USA",
         correct: false,
       },
       {
-        text: "Något 2",
+        text: "Saudi Arabien",
         correct: true,
       },
       {
-        text: "Något 3",
+        text: "Kina",
         correct: false,
       },
     ],
   },
-  {
-    question: "Här är den tionde frågan",
-    answers: [
-      {
-        text: "Något 1",
-        correct: false,
-      },
-      {
-        text: "Något 2",
-        correct: true,
-      },
-      {
-        text: "Något 3",
-        correct: false,
-      },
-    ],
-  },*/
 ];

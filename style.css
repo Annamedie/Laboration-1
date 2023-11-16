@@ -148,7 +148,7 @@ p {
 #next-btn {
   background-color: darkorchid;
   color: #333;
-  font-weight: 500;
+  font-weight: bolder;
   width: 150px;
   border: 0;
   padding: 10px;
@@ -160,7 +160,7 @@ p {
 .btn-quiz {
   background-color: white;
   color: #222;
-  font-weight: 500;
+  font-weight: bolder;
   width: 100%;
   border: 1px solid #222;
   padding: 10px;
