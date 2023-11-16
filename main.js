@@ -69,6 +69,7 @@ function renderScenes() {
 
   const scene = scenes[activeSceneIndex];
   removeCollectiblesPage(scene);
+  loadFromLocalstorage();
 
   h1El.textContent = scene.headline;
   pEl.textContent = scene.text;
@@ -227,12 +228,13 @@ function saveToLocalStorage() {
   localStorage.setItem("inventory", inventoryString);
 }
 function loadFromLocalstorage() {
-  if (localStorage.key("inventory")) {
-    const inventoryString = localStorage.getItem("inventory");
-    savedInventory = JSON.parse(inventoryString);
+  const inventoryString = localStorage.getItem("inventory");
+  if (inventoryString) {
+    const savedInventory = JSON.parse(inventoryString);
+    inventory = savedInventory;
+  } else {
+    inventory = [];
   }
-  inventory.length = 0;
-  inventory.push(...savedInventory); //read that it was the same thing as a for loop, very efficent like this.
 }
 
 /*code for the quiz*/
@@ -259,6 +261,10 @@ function renderQuiz() {
     }
     quizBtns.addEventListener("click", selectedAnswer);
   }
+  if (inventory.length >= 4) {
+    pEl.innerHTML = "Fyra stjärnor ger en ledtråd!<br>Dee är öken!";
+  }
+  console.log(inventory);
 }
 function resetState() {
   pEl.innerHTML = "";
@@ -301,6 +307,14 @@ function goToNextQuestion() {
 function showScore() {
   resetState();
   h1El.innerHTML = `Du hade rätt på ${score} utav ${questions.length}!`;
+  if (score === 10) {
+    pEl.textContent = "Alla rätt en riktig fantast!";
+  } else if (score < 10 && score > 5) {
+    pEl.textContent = "Grymt jobbat!";
+  } else {
+    pEl.textContent = "Bättre lycka nästa gång!";
+  }
+
   nextBtnElement.innerHTML = "Gå ut i parken!";
   nextBtnElement.style.display = "block";
 }
