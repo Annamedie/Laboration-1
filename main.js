@@ -122,8 +122,6 @@ function renderScenes() {
   document.body.appendChild(collectibleImage);
   collectibleImage.addEventListener("click", putInInventory);
 
-  //const iframe = document.createElement("iframe");
-
   let iframeYoutube = document.getElementById("youtube-iframe");
 
   if (iframeYoutube) {
@@ -213,19 +211,13 @@ function removeCollectiblesPage(scene) {
   }
   const sceneCollectible = scene.collectible;
 
-  /*storedInventory.forEach((item) => {
-    console.log("Comparison:", item === sceneCollectible);
-  });*/
-  //"img[src^='/iventory/']"
   storedInventory.forEach((item) => {
     if (item === sceneCollectible) {
-      console.log("prutt1");
       let previousColletible = document.querySelector("img[src^='/iventory/']");
       if (
         /*previousColletible &&*/ document.body.contains(previousColletible)
       ) {
         document.body.removeChild(previousColletible);
-        console.log("prutt");
       }
     }
   });
