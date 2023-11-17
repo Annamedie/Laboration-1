@@ -17,7 +17,7 @@ main();
 function main() {
   startPage();
 }
-/** Sets up the start page for the game and takes in a name and stores it to localstorage*/
+/** Sets up the start page with html for the game and takes in a name and stores it to localstorage*/
 function startPage() {
   contentElement = document.querySelector(".text-content");
   inputElement = document.createElement("input");
@@ -54,7 +54,11 @@ function startPage() {
   contentElement.appendChild(inputBtn);
   contentElement.appendChild(resetBtn);
 }
-
+/**
+ * Takes in two elements and displays a welcome text with a button.
+ * @param {string} inputElement A input field that is removed from the page.
+ * @param {string} inputBtn Sets a new text to this button and a new onclick event.
+ */
 function renderWelcome(inputElement, inputBtn) {
   contentElement.removeChild(inputElement);
   contentElement.removeChild(resetBtn);
@@ -66,7 +70,9 @@ function renderWelcome(inputElement, inputBtn) {
 }
 
 let hasRemovedInputExecuted = false;
-
+/**
+ * Generates html elements from the scenes file, and render them on the screen. Also handles the iventory display from localstorage with a toggle button.
+ */
 function renderScenes() {
   if (!hasRemovedInputExecuted) {
     contentElement.removeChild(inputBtn);
@@ -77,7 +83,7 @@ function renderScenes() {
   cleanSlate();
 
   const scene = scenes[activeSceneIndex];
-  removeCollectiblesPage(scene);
+  removeCollectibleIfInLocalStorage(scene);
   loadFromLocalstorage();
 
   h1Element.textContent = scene.headline;
@@ -158,7 +164,9 @@ function renderScenes() {
   buttonOptionsContainer.appendChild(inventoryButton);
 
   let isInventoryVisible = false;
-
+  /**
+   * onclick function displays the collected images. Toggle effect.
+   */
   inventoryButton.onclick = function () {
     loadFromLocalstorage();
     isInventoryVisible = !isInventoryVisible;
@@ -174,6 +182,10 @@ function renderScenes() {
     }
   };
 }
+/**
+ * Sets the sceen by taking in the index for that sceen and calls on function to render that scene.
+ * @param {number} sceneIndex takes in the activescene index.
+ */
 function nextScene(sceneIndex) {
   if (sceneIndex === 100) {
     startQuiz();
@@ -182,6 +194,10 @@ function nextScene(sceneIndex) {
     renderScenes();
   }
 }
+/**
+ * Makes littles dots appear over an image when you mouve the mouse over the element.
+ * @param {MouseEvent} event Takes in the movments of the mouse over a htmldivelement.
+ */
 function moveMouseOver(event) {
   const getPaint = document.createElement("div");
   getPaint.className = "dots";
@@ -189,13 +205,21 @@ function moveMouseOver(event) {
   getPaint.style.top = event.clientY + "px";
   getPaint.style.left = event.clientX + "px";
 }
+/**
+ * Based on the colletible images present in a particular scene pushes it in an array and removes it from the page. Called when user clicks on a collectible element.
+ */
 function putInInventory() {
   inventory.push(scenes[activeSceneIndex].collectible);
   document.body.removeChild(collectibleImage);
   scenes[activeSceneIndex].collectible = "";
   saveToLocalStorage();
 }
-function removeCollectiblesPage(scene) {
+/**
+ * Takes in the active scene checks if its has a collectible if so checks if it present i localstorage, if so finds the matching image in the html document and removes it.
+ * @param {number} scene the active scene that is renderd.
+ * @returns {void} if scene dont contain collectible.
+ */
+function removeCollectibleIfInLocalStorage(scene) {
   if (!scene.collectible) {
     return;
   }
@@ -213,15 +237,15 @@ function removeCollectiblesPage(scene) {
   storedInventory.forEach((item) => {
     if (item === sceneCollectible) {
       let previousColletible = document.querySelector("img[src^='/iventory/']");
-      if (
-        /*previousColletible &&*/ document.body.contains(previousColletible)
-      ) {
+      if (document.body.contains(previousColletible)) {
         document.body.removeChild(previousColletible);
       }
     }
   });
 }
-
+/**
+ * Called from renderscenes before scene is renderd, finds all previous set htmlelements and removes them.
+ */
 function cleanSlate() {
   const removedElements = document.querySelectorAll(
     ".collectible-container, .potrait-container, .subtitles, .dots, img, .btn"
@@ -230,10 +254,16 @@ function cleanSlate() {
     element.remove();
   });
 }
+/**
+ * Called from putInInventory. Saves the img Collectible in localstorage.
+ */
 function saveToLocalStorage() {
   const inventoryString = JSON.stringify(inventory);
   localStorage.setItem("inventory", inventoryString);
 }
+/**
+ * Called from renderScenes and a clickevent for checking the inventory in localstorage. Checks if there is something saved under the key: inventory. If so puts in the savedInventory.
+ */
 function loadFromLocalstorage() {
   const inventoryString = localStorage.getItem("inventory");
   if (inventoryString) {
@@ -244,13 +274,19 @@ function loadFromLocalstorage() {
   }
 }
 
-/*code for the quiz*/
+/* Here starts the code for the quiz*/
+/**
+ * Called from nextScene, starts the quiz by reseting variabels.
+ */
 function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
   nextBtnElement.innerHTML = "Next";
   renderQuiz();
 }
+/**
+ * Takes in objects from the quizfile and sets up the questions with html elements.
+ */
 function renderQuiz() {
   cleanSlate();
   resetState();
@@ -271,8 +307,10 @@ function renderQuiz() {
     pElement.innerHTML =
       "Fyra samlade stjärnor ger en ledtråd:<br>Dee är öken!";
   }
-  console.log(inventory);
 }
+/**
+ * Called from renderQuiz. Resets the html document when you move to the nextquestion.
+ */
 function resetState() {
   pElement.innerHTML = "";
   nextBtnElement.style.display = "none";
@@ -280,6 +318,10 @@ function resetState() {
     btnElement.removeChild(btnElement.firstChild);
   }
 }
+/**
+ * Sets diffrent classes dependent on if the user marks the correct answer or not, shows the correct answer if the incorret on is choosen and disables them. If correct answer increment the score Then shows the a button to go the next question.
+ * @param {MouseEvent} e What button element the user clicked on.
+ */
 function selectedAnswer(e) {
   const selectedBtn = e.target;
   const isCorrect = selectedBtn.dataset.correct === "true";
@@ -296,6 +338,7 @@ function selectedAnswer(e) {
   }
   nextBtnElement.style.display = "block";
 }
+/** If the currrent question index is lower then the length of the questions array go to the next question when clicked or go back to the scenes */
 nextBtnElement.addEventListener("click", () => {
   if (currentQuestionIndex < questions.length) {
     goToNextQuestion();
@@ -303,6 +346,9 @@ nextBtnElement.addEventListener("click", () => {
     renderScenes();
   }
 });
+/**
+ * Increment the currentQuestionIndex variables to move to the next question. If this is lower than the array of question render the next question or else show the final score.
+ */
 function goToNextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
@@ -311,6 +357,9 @@ function goToNextQuestion() {
     showScore();
   }
 }
+/**
+ * Shows the score and a diffrent message dependet of how well the user did.
+ */
 function showScore() {
   resetState();
   h1Element.innerHTML = `Du hade rätt på ${score} utav ${questions.length}!`;
