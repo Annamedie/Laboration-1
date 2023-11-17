@@ -125,7 +125,7 @@ const scenes = [
     ],
     collectible: "iventory/starny.png",
     potrait: "url('potraits/sloth.jpg')",
-    background: "url('background-pics/takabashi.jpg')",
+    background: "url('background-pics/takabisha.jpg')",
   },
   //6
   {
