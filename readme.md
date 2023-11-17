@@ -26,6 +26,6 @@ _Fusk kommer att rapporteras_
 **9-10 MVG**
 
 **Github repo:**
-
-**Github pages:**
 [Mitt arbete](https://github.com/Annamedie/Laboration-1.git)
+**Github pages:**
+[Min Page](https://annamedie.github.io/Laboration-1/)
