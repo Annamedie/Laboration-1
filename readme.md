@@ -28,4 +28,4 @@ _Fusk kommer att rapporteras_
 **Github repo:**
 
 **Github pages:**
-[Min html fil](./index.html)
+[Mitt arbete](https://github.com/Annamedie/Laboration-1.git)
