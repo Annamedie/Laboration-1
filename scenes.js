@@ -31,9 +31,9 @@ const scenes = [
         nextSceneIndex: 100,
       },
     ],
-    collectible: "/iventory/star.png",
-    potrait: "url('/potraits/maninfr3.jpg')",
-    background: "url('/background-pics/fujipark.jpg')",
+    collectible: "iventory/star.png",
+    potrait: "url('potraits/maninfr3.jpg')",
+    background: "url('background-pics/fujipark.jpg')",
   },
   // 1
   {
@@ -53,9 +53,9 @@ const scenes = [
         nextSceneIndex: 4,
       },
     ],
-    collectible: "/iventory/star3.png",
-    potrait: "url('/potraits/maninfr4.jpg')",
-    background: "url('/background-pics/fujiqinside.jpg')",
+    collectible: "iventory/star3.png",
+    potrait: "url('potraits/maninfr4.jpg')",
+    background: "url('background-pics/fujiqinside.jpg')",
   },
   //2
   {
@@ -71,8 +71,8 @@ const scenes = [
         nextSceneIndex: 0,
       },
     ],
-    potrait: "url('/potraits/exi4.png')",
-    background: "url('/background-pics/dodompa.jpg')",
+    potrait: "url('potraits/exi4.png')",
+    background: "url('background-pics/dodompa.jpg')",
   },
   //3
   {
@@ -88,8 +88,8 @@ const scenes = [
         nextSceneIndex: 0,
       },
     ],
-    potrait: "url('/potraits/excited2.png')",
-    background: "url('/background-pics/fujiyama.jpg')",
+    potrait: "url('potraits/excited2.png')",
+    background: "url('background-pics/fujiyama.jpg')",
   },
   //4
   {
@@ -105,9 +105,9 @@ const scenes = [
         nextSceneIndex: 1,
       },
     ],
-    collectible: "/iventory/star2.png",
-    potrait: "url('/potraits/exit3.png')",
-    background: "url('/background-pics/eenjanka.jpg')",
+    collectible: "iventory/star2.png",
+    potrait: "url('potraits/exit3.png')",
+    background: "url('background-pics/eenjanka.jpg')",
   },
   //5
   {
@@ -123,9 +123,9 @@ const scenes = [
         nextSceneIndex: 1,
       },
     ],
-    collectible: "/iventory/starny.png",
-    potrait: "url('/potraits/sloth.jpg')",
-    background: "url('/background-pics/takabashi.jpg')",
+    collectible: "iventory/starny.png",
+    potrait: "url('potraits/sloth.jpg')",
+    background: "url('background-pics/takabashi.jpg')",
   },
   //6
   {
@@ -138,8 +138,8 @@ const scenes = [
       },
     ],
     video: "https://www.youtube.com/embed/XXGKrIE5tq4?si=yTcdmN8vx_Yn8ukY",
-    potrait: "url('/potraits/womanonr2.jpg')",
-    background: "url('/background-pics/moonsault.webp')",
+    potrait: "url('potraits/womanonr2.jpg')",
+    background: "url('background-pics/moonsault.webp')",
   },
   //7
   {
@@ -152,8 +152,8 @@ const scenes = [
       },
     ],
     video: "https://www.youtube.com/embed/GGF2i-tjvts?si=RN0SyE4KIkHEvyvv",
-    potrait: "url('/potraits/volonr4.jpg')",
-    background: "url('/background-pics/moonsault.webp')",
+    potrait: "url('potraits/volonr4.jpg')",
+    background: "url('background-pics/moonsault.webp')",
   },
   //8
   {
@@ -166,8 +166,8 @@ const scenes = [
       },
     ],
     video: "https://www.youtube.com/embed/GdeWu8-kASw?si=g_9Uq5M934gv6uya",
-    potrait: "url('/potraits/peopleonr.jpg')",
-    background: "url('/background-pics/moonsault.webp')",
+    potrait: "url('potraits/peopleonr.jpg')",
+    background: "url('background-pics/moonsault.webp')",
   },
   //9
   {
@@ -180,8 +180,8 @@ const scenes = [
       },
     ],
     video: "https://www.youtube.com/embed/zozg3nFpu2w?si=HVR-gu9s6JjinvA8",
-    potrait: "url('/potraits/slothonrr.jpg')",
-    background: "url('/background-pics/moonsault.webp')",
+    potrait: "url('potraits/slothonrr.jpg')",
+    background: "url('background-pics/moonsault.webp')",
   },
 ];
 //
