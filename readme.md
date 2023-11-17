@@ -1,5 +1,3 @@
-[Min html fil](./index.html)
-
 # Fuji Q Highland
 
 ## En lärorik tådoppning i berg- och dalbanornas förlovade värld
@@ -13,7 +11,7 @@ I Fuji Q Higland kan man röra sig i parken med hjälp av knappar. Du kan gå ti
 
 ### Tekniska detaljer
 
-Jag har använt mig av localstorage så man kan spara sin progress, den sparar delvis namnet men också hur många stjärnor man samlat på sig i sitt inventory. Quzzet går att göra om hur många gånger en önskar för ett perfect score!
+Jag har använt mig av localstorage så man kan spara sin progress, den sparar delvis namnet men också hur många stjärnor man samlat på sig i sitt inventory. Quzzet går att göra om hur många gånger en önskar för ett perfect score! Det blir också en prick kvar när man förmiskar inventory är medveten om det men vallt att låta det vara.
 
 ### Svårigheter
 
@@ -30,3 +28,4 @@ _Fusk kommer att rapporteras_
 **Github repo:**
 
 **Github pages:**
+[Min html fil](./index.html)
