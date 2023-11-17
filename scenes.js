@@ -1,4 +1,13 @@
 let activeSceneIndex = 0;
+/**
+ * @typedef {{headline: string, text:string, buttonoptions:[], collectible: number, potrait: string, background:string, video:string }} Scene
+ * @typedef {{text: string, nextSceneIndex: number}} ButtonOption
+ */
+/**
+ * A list of propities that build a scene used by the renderScenes function in the main.js
+ * @type {Scene[]}
+ * @type {ButtonOption[]}
+ */
 const scenes = [
   // 0
   {

@@ -1,29 +1,29 @@
 //window.addEventListener("DOMContentLoaded", main);
-
-const backgroundEl = document.getElementById("background");
-const btnEl = document.querySelector(".btn-options");
+//Gobal variable and function call for main() to start.
+const backgroundElement = document.getElementById("background");
+const btnElement = document.querySelector(".btn-options");
 const nextBtnElement = document.getElementById("next-btn");
-const pEl = document.querySelector("p");
-const h1El = document.querySelector("h1");
+const pElement = document.querySelector("p");
+const h1Element = document.querySelector("h1");
 let content = document.getElementById("content");
-let textConEl;
-let inputEl;
+let contentElement;
+let inputElement;
 let inputBtn;
 let inputName;
 let collectibleImage;
 let inventory = [];
 main();
-
+/** Here is where the program starts*/
 function main() {
   startPage();
 }
-
+/** Sets up the start page for the game and takes in a name and stores it to localstorage*/
 function startPage() {
-  textConEl = document.querySelector(".text-content");
-  inputEl = document.createElement("input");
+  contentElement = document.querySelector(".text-content");
+  inputElement = document.createElement("input");
 
-  inputEl.setAttribute("type", "text");
-  inputEl.setAttribute("placeholder", "Skriv ditt namn!");
+  inputElement.setAttribute("type", "text");
+  inputElement.setAttribute("placeholder", "Skriv ditt namn!");
 
   inputBtn = document.createElement("button");
   resetBtn = document.createElement("button");
@@ -31,38 +31,37 @@ function startPage() {
   inputBtn.innerText = "Sänd";
   resetBtn.innerText = "Nollställ Fuji-Q";
 
-  inputEl.className = "input-field";
+  inputElement.className = "input-field";
   inputBtn.className = "input-btn";
   resetBtn.className = "input-btn";
 
   let checkStorage = localStorage.getItem("name");
-  inputEl.value = checkStorage || "";
+  inputElement.value = checkStorage || "";
 
   inputBtn.onclick = function () {
-    inputName = inputEl.value;
+    inputName = inputElement.value;
     if (!inputName && !checkStorage) {
       inputName = "Britt-Börje";
     }
     localStorage.setItem("name", inputName);
-    inputEl.value = "";
-    renderWelcome(inputEl, inputBtn, inputName);
+    inputElement.value = "";
+    renderWelcome(inputElement, inputBtn, inputName);
   };
   resetBtn.onclick = function () {
     localStorage.clear();
   };
-  textConEl.appendChild(inputEl);
-  textConEl.appendChild(inputBtn);
-  textConEl.appendChild(resetBtn);
+  contentElement.appendChild(inputElement);
+  contentElement.appendChild(inputBtn);
+  contentElement.appendChild(resetBtn);
 }
 
-//iname följde med
-function renderWelcome(inputEl, inputBtn, inputName) {
-  textConEl.removeChild(inputEl);
-  textConEl.removeChild(resetBtn);
+function renderWelcome(inputElement, inputBtn) {
+  contentElement.removeChild(inputElement);
+  contentElement.removeChild(resetBtn);
   let savedName = localStorage.getItem("name") || "Britt-Börje";
   inputBtn.innerText = "Click here to enter the park";
-  pEl.textContent = "";
-  h1El.textContent = "Välkommen till FUJI-Q Highland, " + savedName + "!!";
+  pElement.textContent = "";
+  h1Element.textContent = "Välkommen till FUJI-Q Highland, " + savedName + "!!";
   inputBtn.onclick = renderScenes;
 }
 
@@ -70,7 +69,7 @@ let hasRemovedInputExecuted = false;
 
 function renderScenes() {
   if (!hasRemovedInputExecuted) {
-    textConEl.removeChild(inputBtn);
+    contentElement.removeChild(inputBtn);
     hasRemovedInputExecuted = true;
   }
   nextBtnElement.style.display = "none";
@@ -81,10 +80,10 @@ function renderScenes() {
   removeCollectiblesPage(scene);
   loadFromLocalstorage();
 
-  h1El.textContent = scene.headline;
-  pEl.textContent = scene.text;
-  backgroundEl.style.backgroundImage = scene.background;
-  backgroundEl.style.backgroundPosition = "center";
+  h1Element.textContent = scene.headline;
+  pElement.textContent = scene.text;
+  backgroundElement.style.backgroundImage = scene.background;
+  backgroundElement.style.backgroundPosition = "center";
 
   let collectibleContainer = document.createElement("div");
   collectibleContainer.className = "collectible-container";
@@ -125,7 +124,7 @@ function renderScenes() {
   let iframeYoutube = document.getElementById("youtube-iframe");
 
   if (iframeYoutube) {
-    textConEl.removeChild(iframeYoutube);
+    contentElement.removeChild(iframeYoutube);
   }
   if (scene.video) {
     const iframe = document.createElement("iframe");
@@ -137,7 +136,7 @@ function renderScenes() {
     iframe.allow =
       "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     iframe.allowFullscreen = true;
-    textConEl.appendChild(iframe);
+    contentElement.appendChild(iframe);
   }
 
   buttonOptionsContainer = document.getElementById("btn-options");
@@ -251,34 +250,34 @@ function startQuiz() {
   score = 0;
   nextBtnElement.innerHTML = "Next";
   renderQuiz();
-  //answers;
 }
 function renderQuiz() {
   cleanSlate();
   resetState();
   let currentQuestion = questions[currentQuestionIndex];
   numberQuestion = currentQuestionIndex + 1;
-  h1El.innerHTML = numberQuestion + ". " + currentQuestion.question;
+  h1Element.innerHTML = numberQuestion + ". " + currentQuestion.question;
   for (let answer of currentQuestion.answers) {
     const quizBtns = document.createElement("button");
     quizBtns.textContent = answer.text;
     quizBtns.classList.add("btn-quiz");
-    btnEl.appendChild(quizBtns);
+    btnElement.appendChild(quizBtns);
     if (answer.correct) {
       quizBtns.dataset.correct = answer.correct;
     }
     quizBtns.addEventListener("click", selectedAnswer);
   }
   if (inventory.length >= 4) {
-    pEl.innerHTML = "Fyra samlade stjärnor ger en ledtråd:<br>Dee är öken!";
+    pElement.innerHTML =
+      "Fyra samlade stjärnor ger en ledtråd:<br>Dee är öken!";
   }
   console.log(inventory);
 }
 function resetState() {
-  pEl.innerHTML = "";
+  pElement.innerHTML = "";
   nextBtnElement.style.display = "none";
-  while (btnEl.firstChild) {
-    btnEl.removeChild(btnEl.firstChild);
+  while (btnElement.firstChild) {
+    btnElement.removeChild(btnElement.firstChild);
   }
 }
 function selectedAnswer(e) {
@@ -290,7 +289,7 @@ function selectedAnswer(e) {
   } else {
     selectedBtn.classList.add("incorrect");
   }
-  const buttons = btnEl.children;
+  const buttons = btnElement.children;
   for (let button of buttons) {
     if (button.dataset.correct === "true") button.classList.add("correct");
     button.disabled = true;
@@ -314,13 +313,13 @@ function goToNextQuestion() {
 }
 function showScore() {
   resetState();
-  h1El.innerHTML = `Du hade rätt på ${score} utav ${questions.length}!`;
+  h1Element.innerHTML = `Du hade rätt på ${score} utav ${questions.length}!`;
   if (score === 10) {
-    pEl.textContent = "Alla rätt en riktig fantast!";
+    pElement.textContent = "Alla rätt en riktig fantast!";
   } else if (score < 10 && score > 5) {
-    pEl.textContent = "Grymt jobbat!";
+    pElement.textContent = "Inte helt illa!";
   } else {
-    pEl.textContent = "Bättre lycka nästa gång!";
+    pElement.textContent = "Bättre lycka nästa gång!";
   }
 
   nextBtnElement.innerHTML = "Gå ut i parken!";

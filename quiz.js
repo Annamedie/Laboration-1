@@ -1,5 +1,14 @@
 let currentQuestionIndex = 0;
 score = 0;
+/**
+ * @typedef {{question: string, answers:[]}} Question
+ * @typedef {{text: string, correct: boolean}} Answer
+ */
+/**
+ * A list of properties that build the Quiz, infromation collected by the function renderquiz.
+ * @type {Question[]}
+ * @type {Answer[]}
+ */
 const questions = [
   {
     question: "Vilket år öppnade Fuji-Q Highland?",
