@@ -71,7 +71,7 @@ function renderWelcome(inputElement, inputBtn) {
 
 let hasRemovedInputExecuted = false;
 /**
- * Generates html elements from the scenes file, and render them on the screen. Also handles the iventory display from localstorage with a toggle button.
+ * Generates html elements from the scenes objects file, and render them on the screen. Also handles the iventory display from localstorage with a toggle button.
  */
 function renderScenes() {
   if (!hasRemovedInputExecuted) {

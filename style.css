@@ -149,16 +149,21 @@ p {
 }
 /*Styles for the quiz*/
 #next-btn {
-  background-color: darkorchid;
-  color: #333;
+  background-color: #29adb2;
+  color: black;
+  border: 1px solid black;
   font-weight: bolder;
   width: 150px;
-  border: 0;
   padding: 10px;
   margin: 20px auto 0;
   border-radius: 4px;
   cursor: pointer;
   display: none;
+  transition: 0.3s;
+}
+#next-btn:hover {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 .btn-quiz {
   background-color: white;
